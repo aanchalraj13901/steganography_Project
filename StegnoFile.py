@@ -34,7 +34,7 @@ def encrypt_message():
     cv2.imwrite("Encryptedmsg.png", img)
     os.system("start Encryptedmsg.png")
     success_label.config(text="Encryption successful! \n Encrypted image saved as 'Encryptedmsg.png'.")
-    decrypt_message_window()  # Show the decryption window after encryption
+    decrypt_message_window()  
 
 def decrypt_message_window():
     global decrypt_window, password_entry_decrypt, result_label_decrypt
@@ -60,7 +60,7 @@ def decrypt_message():
     m = 0
     z = 0
 
-    pas = password  # Use the global password variable
+    pas = password 
 
     if pas == password_entry_decrypt.get():
         for i in range(len(msg)):
@@ -78,7 +78,7 @@ def browse_image():
     img_path.set(filedialog.askopenfilename(filetypes=[("Image files", "*.png;*.jpg;*.jpeg")]))
     image_path_label.config(text="Selected Image: " + os.path.basename(img_path.get()))
 
-# Create encryption window
+
 encrypt_window = tk.Tk()
 encrypt_window.title("Message Encryption")
 
@@ -106,5 +106,4 @@ encrypt_button.pack()
 success_label = tk.Label(encrypt_window, text="")
 success_label.pack()
 
-# Start the GUI main loop
 encrypt_window.mainloop()
